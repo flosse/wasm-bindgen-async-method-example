@@ -1,0 +1,18 @@
+[package]
+name = "wasm-bindgen-async-method-example"
+version = "0.0.0"
+authors = ["Markus Kohlhase <markus.kohlhase@slowtec.de>"]
+edition = "2018"
+publish = false
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+wasm-bindgen = { version = "*", features = ["serde-serialize"] }
+wasm-bindgen-futures = "*"
+
+[profile.release]
+lto = true
+opt-level = 'z'
+codegen-units = 1
